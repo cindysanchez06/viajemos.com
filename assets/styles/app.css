@@ -1,0 +1,4 @@
+@import "~datatables/media/css/jquery.dataTables.min.css";
+body {
+    background-color: lightgray;
+}
