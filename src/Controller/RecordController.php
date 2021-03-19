@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\RecordRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,10 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecordController extends AbstractController
 {
     /**
-     * @Route("/", name="record-index")
+     * @Route("/record", name="record-index")
      */
-    public function index(): Response
+    public function index(RecordRepository $recordRepository): Response
     {
-        return $this->render('base.html.twig');
+        $data = $recordRepository->findAll();
+        return $this->render('record/index.html.twig',[
+            'data' => $data
+        ]);
     }
 }

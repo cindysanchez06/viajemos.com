@@ -1,10 +1,35 @@
-<table id="data-table">
-    <tr>
-        <th>Hola</th>
-    </tr>
-    <tr>
-        <td>
-            dsa
-        </td>
-    </tr>
-</table>
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block content %}
+    <div class="row content">
+        <h3>Historico</h3>
+        <hr>
+        <div class="col-12">
+            <table id="data-table">
+                <thead>
+                <tr>
+                    <th>Ciudad</th>
+                    <th>Pais</th>
+                    <th>Humedad</th>
+                    <th>Fecha</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data %}
+                    <tr>
+
+                        <td>
+                            {{ item.city }}
+                        </td>
+                        <td>{{ item.city.county }}</td>
+                        <td>{{ item.humidity }}</td>
+                        <td>{{ item.updatedAt|date }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block content %}
+    <div class="row content">
+        <div class="col-md-8"></div>
+        <div class="col-md-3">
+            {{ form_start(form) }}
+            {{ form_row(form) }}
+                <input type="submit">Buscar
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+    <br/>
+    <div id="mapid"></div>
+{% endblock %}

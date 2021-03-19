@@ -95,4 +95,9 @@ class Country
     {
         $this->createdAt = $createdAt;
     }
+
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
 }
