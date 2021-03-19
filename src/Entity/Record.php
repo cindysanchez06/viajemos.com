@@ -117,4 +117,20 @@ class Record
     {
         $this->createdAt = $createdAt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
 }

@@ -7,11 +7,42 @@
         <div class="col-md-3">
             {{ form_start(form) }}
             {{ form_row(form) }}
-                <input type="submit">Buscar
+            <input type="submit">
             {{ form_end(form) }}
         </div>
-
     </div>
     <br/>
-    <div id="mapid"></div>
+    <div id="mapGoogle" class="map"/>
+{% endblock %}
+{% block myScripts %}
+    <script>
+        const latitude = '{{ data.latitude }}'
+        const longitude = '{{ data.longitude }}'
+        const humidity = ' {{ data.humidity }}'
+        let map;
+
+        if (latitude && longitude) {
+            const content = "Humedity " + '{{ data.city }}' + humidity + '%';
+            map = new google.maps.Map(document.getElementById('mapGoogle'), {
+                center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                zoom: 8
+            });
+            const marker = new google.maps.Marker({
+                position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                map,
+                title: content,
+                visible: true
+            });
+            const infoWindow = new google.maps.InfoWindow({
+                content: content,
+            });
+            infoWindow.open(map, marker);
+        } else {
+            map = new google.maps.Map(document.getElementById('mapGoogle'), {
+                center: {lat: 37.09024, lng: -95.712891},
+                zoom: 5
+            });
+        }
+
+    </script>
 {% endblock %}

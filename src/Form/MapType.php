@@ -18,12 +18,6 @@ class MapType extends AbstractType
             'class' => City::class,
             'help' => 'Please select a City'
         ]);
-        $builder->add('humidity', TextType::class, [
-            'row_attr' => [
-                'style' => 'display:none'
-            ],
-            'required' => false
-        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

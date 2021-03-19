@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Record;
 use App\Form\MapType;
 use App\Services\CreateRecord;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,12 +21,13 @@ class MapController extends AbstractController
     {
         $form = $this->createForm(MapType::class, null);
         $form->handleRequest($request);
+        $data = new Record();
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $createRecord->handle($form->getData());
+            $data = $createRecord->handle($form->getData());
         }
         return $this->render('map/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'data' => $data
         ]);
     }
 }
