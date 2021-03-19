@@ -32,9 +32,26 @@ header {
 }
 
 .header-menu {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    align-items: center;
+}
+
+.header-menu ul {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.header-menu ul li {
+    width: 110px;
+    list-style-type: none;
+}
+
+.header-menu ul li a {
+    color: #1D478C;
+    font-weight: 600;
 }
 
 .header {
@@ -53,5 +70,23 @@ header {
 
 .map {
     width: 100%;
-    height: 500px;
+    height: calc(100vh - 66px);
+    margin-top: 10px;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo_menu {
+        padding: 1rem 2rem 1rem 0.5rem;
+        height: 25px;
+        width: 150%;
+    }
+}
+
+h3 {
+    color: #1D478C!important;
+    margin-bottom: 30px;
 }

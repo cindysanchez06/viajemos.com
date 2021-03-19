@@ -3,8 +3,8 @@
 {% block header %}{% endblock %}
 {% block content %}
     <div class="row content">
-        <h3>Historico</h3>
-        <hr>
+        <h3>History of queries </h3>
+
         <div class="col-12">
             <table id="data-table">
                 <thead>
@@ -18,14 +18,10 @@
                 <tbody>
                 {% for item in data %}
                     <tr>
-
-                        <td>
-                            {{ item.city }}
-                        </td>
+                        <td>{{ item.city }}</td>
                         <td>{{ item.city.county }}</td>
-                        <td>{{ item.humidity }}</td>
+                        <td>{{ item.humidity }}%</td>
                         <td>{{ item.updatedAt|date }}</td>
-
                     </tr>
                 {% endfor %}
                 </tbody>

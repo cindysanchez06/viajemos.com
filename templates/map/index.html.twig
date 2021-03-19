@@ -3,16 +3,20 @@
 {% block header %}{% endblock %}
 {% block content %}
     <div class="row content">
-        <div class="col-md-8"></div>
-        <div class="col-md-3">
+        <div class="col-md-12">
             {{ form_start(form) }}
-            {{ form_row(form) }}
-            <input type="submit">
+            {{ form_row(form.city, {attr:{
+                'class': 'form-control'
+            }}) }}
+            <input class="submit btn btn-primary" type="submit">
             {{ form_end(form) }}
         </div>
+        <br/>
+        <div class="col-md-12">
+            <div id="mapGoogle" class="map"/>
+        </div>
     </div>
-    <br/>
-    <div id="mapGoogle" class="map"/>
+
 {% endblock %}
 {% block myScripts %}
     <script>
@@ -22,6 +26,10 @@
         let map;
 
         if (latitude && longitude) {
+            document.querySelector('.map').scrollIntoView({
+                behavior: 'smooth'
+            });
+
             const content = "Humedity " + '{{ data.city }}' + humidity + '%';
             map = new google.maps.Map(document.getElementById('mapGoogle'), {
                 center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},

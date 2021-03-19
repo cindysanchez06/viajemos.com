@@ -16,7 +16,6 @@ class MapType extends AbstractType
     {
         $builder->add('city', EntityType::class, [
             'class' => City::class,
-            'help' => 'Please select a City'
         ]);
     }
 
